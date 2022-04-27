@@ -6,7 +6,7 @@ const ProfileView = () => import('../views/ProfileView')
 const SearchView = () => import('../views/SearchView')
 const YunCunView = () => import('../views/YunCunView')
 const VideoView = () => import('../views/VideoView')
-
+const ListView = () =>import('../views/ListView')
 const routes = [
     {
         path: '/',
@@ -37,6 +37,11 @@ const routes = [
         path: '/video',
         name: 'video',
         component: VideoView
+    },
+    {
+        path: '/list-view',
+        name: 'listview',
+        component: ListView
     },
 ]
 

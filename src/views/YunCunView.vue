@@ -1,10 +1,15 @@
 <template>
-    <h2>运存</h2>
+    <HeaderCom/>
+    <h1>云村</h1>
 </template>
 
 <script>
+    import HeaderCom from "@/components/header/HeaderCom";
     export default {
-        name: "YunCunView"
+        name: "YueCunView",
+        components: {
+            HeaderCom
+        }
     }
 </script>
 

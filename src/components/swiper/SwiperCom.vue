@@ -12,7 +12,7 @@
 <script>
     import 'swiper/css/swiper.min.css'
     import Swiper from 'swiper'
-    import {getBanner} from  "@/api"
+    import {getBanner} from "@/api"
     import LconList from "@/components/icon-list/lconList";
 
     export default {
@@ -25,16 +25,18 @@
                 //     {pic: require('../../assets/img/swiper2.jpg'), id: 1},
                 //     {pic: require('../../assets/img/swiper3.png'), id: 2}
                 // ]
-                imgs:[]
+                imgs: []
             }
         },
         created() {
             this.getBannerImgs()
             // 通过axios像后端要数据，其中包括swiiper中图片路径，把图片路径修改this.imgs
+            //data里默认为空数据
+            //created的时候，向后台要到数据，更新data
+            //更新完data之后，用新数据渲染页面
+            // 检测到数据被修改之后，updated里面，操作dom
         },
-        mounted() {
-
-
+        updated() {
             //以下代码，要操作dom
             //create,项目创建后  mounted,挂载之后（vue实例挂载到真实的dom）
             //当vue实例挂载dom之后，在实例中才有真实的dom
@@ -42,12 +44,12 @@
                 loop: true,
                 autoplay: true
             })
-            this.getBannerImgs()
+
         },
-        methods:{
-          async  getBannerImgs(){//异步
-                const  res=await  getBanner(1)//跟后台要安卓端的图片
-              this.imgs=res.data.banners//跟后台要到的数据，赋值给本对象的data
+        methods: {
+            async getBannerImgs() {//异步
+                const res = await getBanner(1)//跟后台要安卓端的图片
+                this.imgs = res.data.banners//跟后台要到的数据，赋值给本对象的data
             }
         }
     }
